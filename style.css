@@ -846,7 +846,18 @@ h2 span {
 }
 
 @media (max-width: 768px) {
-  .desktop-nav {
+   /* Remove about image in tablet mode */
+  .about-image {
+    display: none;
+  }
+  
+  /* Adjust about-text to take full width */
+  .about-text {
+    flex: 1 1 100%;
+  }
+  
+ 
+    .desktop-nav {
     display: none;
   }
   
