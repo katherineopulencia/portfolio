@@ -1,185 +1,201 @@
-// Mobile menu toggle
-document.getElementById('menu-toggle').addEventListener('click', function() {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('active');
-});
+ // Projects data
+    const projects = [
+      {
+        title: "Portfolio Website",
+        description:
+          "A personal portfolio website showcasing my skills, projects, and experience with a clean and modern design.",
+        techStack: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+        image:
+          "https://placehold.co/600x400/png?text=Screenshot+of+Portfolio+Website+with+clean+modern+design",
+        link: "https://yourportfolio.com",
+      },
+      {
+        title: "E-commerce Store",
+        description:
+          "Developed a fully responsive e-commerce store with shopping cart, product filters, and payment integration.",
+        techStack: ["React", "Node.js", "Express", "MongoDB"],
+        image:
+          "https://placehold.co/600x400/png?text=Screenshot+of+E-commerce+Store+with+product+grid+and+filters",
+        link: "https://myecommercestore.com",
+      },
+      {
+        title: "UI/UX Design System",
+        description:
+          "Created a comprehensive design system with reusable components and style guidelines for a SaaS product.",
+        techStack: ["Figma", "Adobe XD", "CSS Modules"],
+        image:
+          "https://placehold.co/600x400/png?text=Screenshot+of+UI+Design+System+with+components+and+color+palette",
+        link: "https://designsystem.example.com",
+      },
+      {
+        title: "Blog Platform",
+        description:
+          "Built a multi-user blog platform with markdown support, comments, and user authentication.",
+        techStack: ["Next.js", "Firebase", "Tailwind CSS"],
+        image:
+          "https://placehold.co/600x400/png?text=Screenshot+of+Blog+Platform+with+posts+and+comments",
+        link: "https://myblogplatform.com",
+      },
+      {
+        title: "Task Management App",
+        description:
+          "A task management app with drag-and-drop interface, deadlines, and notifications.",
+        techStack: ["Vue.js", "Vuex", "Firebase"],
+        image:
+          "https://placehold.co/600x400/png?text=Screenshot+of+Task+Management+App+with+drag+and+drop+tasks",
+        link: "https://taskmanagerapp.com",
+      },
+      {
+        title: "Restaurant Website",
+        description:
+          "Responsive website for a local restaurant featuring menu, reservations, and contact form.",
+        techStack: ["HTML", "CSS", "JavaScript", "PHP"],
+        image:
+          "https://placehold.co/600x400/png?text=Screenshot+of+Restaurant+Website+with+menu+and+reservation+form",
+        link: "https://localrestaurant.com",
+      },
+      {
+        title: "Weather Dashboard",
+        description:
+          "Interactive weather dashboard showing current conditions and forecasts using external APIs.",
+        techStack: ["React", "OpenWeatherMap API", "Tailwind CSS"],
+        image:
+          "https://placehold.co/600x400/png?text=Screenshot+of+Weather+Dashboard+with+charts+and+forecast",
+        link: "https://weatherdashboard.com",
+      },
+      {
+        title: "Fitness Tracker",
+        description:
+          "Mobile-friendly fitness tracker app with workout logging and progress charts.",
+        techStack: ["React Native", "Redux", "Firebase"],
+        image:
+          "https://placehold.co/600x400/png?text=Screenshot+of+Fitness+Tracker+App+with+workout+logs",
+        link: "https://fitnesstrackerapp.com",
+      },
+      {
+        title: "Photography Portfolio",
+        description:
+          "A visually stunning portfolio website for a professional photographer with galleries and contact info.",
+        techStack: ["Gatsby", "GraphQL", "CSS Modules"],
+        image:
+          "https://placehold.co/600x400/png?text=Screenshot+of+Photography+Portfolio+with+image+gallery",
+        link: "https://photographyportfolio.com",
+      },
+    ];
 
-// Close mobile menu when clicking a link
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.remove('active');
-    });
-});
+    const projectsGrid = document.getElementById("projects-grid");
 
-// Projects data
-const projects = {
-    web: [
-        {
-            title: "E-commerce Website",
-            description: "A responsive online store built with WordPress and custom themes.",
-            image: "https://via.placeholder.com/600x400?text=E-commerce+Website",
-            link: "#",
-            github: "#"
-        },
-        {
-            title: "Portfolio Website",
-            description: "Personal portfolio showcasing my web development projects.",
-            image: "https://via.placeholder.com/600x400?text=Portfolio+Website",
-            link: "#",
-            github: "#"
-        },
-        {
-            title: "Task Management App",
-            description: "Web application for organizing daily tasks and projects.",
-            image: "https://via.placeholder.com/600x400?text=Task+App",
-            link: "#",
-            github: "#"
-        }
-    ],
-    design: [
-        {
-            title: "Mobile App UI Design",
-            description: "Figma prototype for a fitness tracking mobile application.",
-            image: "https://via.placeholder.com/600x400?text=Mobile+App+Design",
-            link: "#",
-            figma: "#"
-        },
-        {
-            title: "Website Redesign",
-            description: "UI/UX redesign for a local business website.",
-            image: "https://via.placeholder.com/600x400?text=Website+Redesign",
-            link: "#",
-            figma: "#"
-        },
-        {
-            title: "Dashboard Interface",
-            description: "Admin dashboard design with focus on usability.",
-            image: "https://via.placeholder.com/600x400?text=Dashboard+Design",
-            link: "#",
-            figma: "#"
-        }
-    ]
-};
-/*
-// Load projects into the DOM
-function loadProjects() {
-    const webProjectsContainer = document.getElementById('web-projects');
-    const designProjectsContainer = document.getElementById('design-projects');
-    
-    // Load web projects
-    projects.web.forEach(project => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        projectCard.innerHTML = `
-            <div class="project-image">
-                <img src="${project.image}" alt="${project.title}">
-            </div>
-            <div class="project-info">
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="project-links">
-                    <a href="${project.link}" target="_blank">Live Demo</a>
-                    <a href="${project.github}" target="_blank">View Code</a>
-                </div>
-            </div>
-        `;
-        webProjectsContainer.appendChild(projectCard);
-    });
-    
-    // Load design projects
-    projects.design.forEach(project => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        projectCard.innerHTML = `
-            <div class="project-image">
-                <img src="${project.image}" alt="${project.title}">
-            </div>
-            <div class="project-info">
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="project-links">
-                    <a href="${project.link}" target="_blank">View Prototype</a>
-                    <a href="${project.figma}" target="_blank">Figma File</a>
-                </div>
-            </div>
-        `;
-        designProjectsContainer.appendChild(projectCard);
-    });
-}
-*/
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+    projects.forEach((project) => {
+      const card = document.createElement("article");
+      card.className =
+        "bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-xl transition-shadow";
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    loadProjects();
-    
-    // Add active class to current section in navigation
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-menu a');
-    
-    window.addEventListener('scroll', function() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (pageYOffset >= (sectionTop - 100)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
+      card.innerHTML = `
+        <img
+          src="${project.image}"
+          alt="Screenshot of project titled '${project.title}' showing a preview of the project interface"
+          class="w-full h-48 object-cover"
+          loading="lazy"
+          width="600"
+          height="400"
+        />
+        <div class="p-6 flex flex-col flex-grow">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">${project.title}</h3>
+          <p class="text-gray-700 dark:text-gray-300 flex-grow">${project.description}</p>
+          <div class="mt-4">
+            <h4 class="font-semibold text-indigo-600 dark:text-indigo-400 mb-1">Tech Stack:</h4>
+            <ul class="flex flex-wrap gap-2 text-sm text-indigo-700 dark:text-indigo-300 font-medium">
+              ${project.techStack
+                .map(
+                  (tech) =>
+                    `<li class="bg-indigo-100 dark:bg-indigo-900 px-3 py-1 rounded-full">${tech}</li>`
+                )
+                .join("")}
+            </ul>
+          </div>
+          <a
+            href="${project.link}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-block text-indigo-600 dark:text-indigo-400 font-semibold hover:underline"
+            aria-label="Visit live site or GitHub repository for ${project.title}"
+            >View Project &rarr;</a
+          >
+        </div>
+      `;
+
+      projectsGrid.appendChild(card);
     });
-});
 
-// Dark Mode Toggle
-const darkModeToggle = document.getElementById('darkModeToggle');
-const body = document.body;
+    // Mobile menu toggle
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-// Check for saved user preference
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme) {
-    body.classList.add(currentTheme);
-    if (currentTheme === 'dark-mode') {
-        // If dark mode was enabled, make sure the toggle reflects this
-        document.querySelector('.dark-icon').style.display = 'block';
-        document.querySelector('.light-icon').style.display = 'none';
+    menuButton.addEventListener("click", () => {
+      const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+      if (isExpanded) {
+        mobileMenu.hidden = true;
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.querySelector("i").classList.remove("fa-times");
+        menuButton.querySelector("i").classList.add("fa-bars");
+      } else {
+        mobileMenu.hidden = false;
+        menuButton.setAttribute("aria-expanded", "true");
+        menuButton.querySelector("i").classList.remove("fa-bars");
+        menuButton.querySelector("i").classList.add("fa-times");
+      }
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.hidden = true;
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.querySelector("i").classList.remove("fa-times");
+        menuButton.querySelector("i").classList.add("fa-bars");
+      });
+    });
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    const darkModeIcon = document.getElementById("dark-mode-icon");
+
+    // Initialize theme based on localStorage or system preference
+    function setTheme(theme) {
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+        darkModeIcon.classList.remove("fa-sun");
+        darkModeIcon.classList.add("fa-moon");
+        darkModeToggle.setAttribute("aria-label", "Switch to light mode");
+        darkModeToggle.title = "Switch to light mode";
+      } else {
+        document.documentElement.classList.remove("dark");
+        darkModeIcon.classList.remove("fa-moon");
+        darkModeIcon.classList.add("fa-sun");
+        darkModeToggle.setAttribute("aria-label", "Switch to dark mode");
+        darkModeToggle.title = "Switch to dark mode";
+      }
     }
-}
 
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    
-    // Save user preference
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark-mode');
-    } else {
-        localStorage.setItem('theme', 'light-mode');
+    function getPreferredTheme() {
+      if (localStorage.getItem("theme")) {
+        return localStorage.getItem("theme");
+      }
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
+      return "light";
     }
-    
-    // Toggle moon/sun icons
-    document.querySelectorAll('.dark-icon, .light-icon').forEach(icon => {
-        icon.style.display = icon.style.display === 'none' ? 'block' : 'none';
+
+    setTheme(getPreferredTheme());
+
+    darkModeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      if (isDark) {
+        setTheme("light");
+        localStorage.setItem("theme", "light");
+      } else {
+        setTheme("dark");
+        localStorage.setItem("theme", "dark");
+      }
     });
-});

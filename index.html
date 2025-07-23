@@ -1,320 +1,373 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katherine Opulencia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
-    <body class="light-mode">
-    <!-- Dark Mode Toggle Button -->
-    <button id="darkModeToggle" class="dark-mode-toggle">
-        <i class="fas fa-moon light-icon"></i>
-        <i class="fas fa-sun dark-icon"></i>
+<html lang="en" class="scroll-smooth" >
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   My Portfolio
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+   // Enable dark mode class strategy for Tailwind
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+          },
+          animationDelay: {
+            2000: '2000ms',
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-white text-gray-800 selection:bg-indigo-400 selection:text-white dark:bg-gray-900 dark:text-gray-200">
+  <!-- Sticky Header -->
+  <header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50">
+   <nav class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between py-4">
+    
+    <button aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" id="menu-button" class="md:hidden text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+     <i class="fas fa-bars text-2xl">
+     </i>
     </button>
+    <ul class="hidden md:flex justify-center space-x-8 text-gray-700 dark:text-gray-300 font-semibold tracking-wide text-sm sm:text-base flex-1" role="menubar" id="desktop-menu">
+     <li role="none">
+      <a class="hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#home" role="menuitem" tabindex="0">
+       Home
+      </a>
+     </li>
+     <li role="none">
+      <a class="hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#about" role="menuitem" tabindex="0">
+       About
+      </a>
+     </li>
+     <li role="none">
+      <a class="hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#projects" role="menuitem" tabindex="0">
+       Projects
+      </a>
+     </li>
+     <li role="none">
+      <a class="hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#experience" role="menuitem" tabindex="0">
+       Experience
+      </a>
+     </li>
+     <li role="none">
+      <a class="hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#education" role="menuitem" tabindex="0">
+       Education
+      </a>
+     </li>
+     <li role="none">
+      <a class="hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#contact" role="menuitem" tabindex="0">
+       CV / Contact
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div class="md:hidden" id="mobile-menu" hidden>
+    <ul class="flex flex-col space-y-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 py-6 px-6 text-gray-700 dark:text-gray-300 font-semibold tracking-wide text-base" role="menu" aria-label="Mobile menu">
+     <li role="none">
+      <a class="block hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#home" role="menuitem" tabindex="-1">
+       Home
+      </a>
+     </li>
+     <li role="none">
+      <a class="block hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#about" role="menuitem" tabindex="-1">
+       About
+      </a>
+     </li>
+     <li role="none">
+      <a class="block hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#projects" role="menuitem" tabindex="-1">
+       Projects
+      </a>
+     </li>
+     <li role="none">
+      <a class="block hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#experience" role="menuitem" tabindex="-1">
+       Experience
+      </a>
+     </li>
+     <li role="none">
+      <a class="block hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#education" role="menuitem" tabindex="-1">
+       Education
+      </a>
+     </li>
+     <li role="none">
+      <a class="block hover:text-indigo-600 dark:hover:text-indigo-400 focus:text-indigo-600 dark:focus:text-indigo-400 focus:outline-none" href="#contact" role="menuitem" tabindex="-1">
+       CV / Contact
+      </a>
+     </li>
+    </ul>
+   </div>
+  </header>
 
-    <!-- Sticky Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">Katherine Opulencia</a>
-                <nav class="desktop-nav">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#education">Education</a>
-                    <a href="#contact">Contact</a>
-                </nav>
-                <button class="mobile-menu-toggle" id="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-            <!-- Mobile Menu -->
-            <div class="mobile-menu" id="mobile-menu">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </header>
+  <!-- Dark Mode Toggle Button (Sticky, not in header) -->
+  <button aria-label="Toggle dark mode" id="dark-mode-toggle" class="fixed bottom-6 right-6 z-50 bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-900 focus:ring-offset-5 transition" title="Toggle light/dark mode" type="button">
+   <i class="fas fa-moon text-lg" id="dark-mode-icon"></i>
+  </button>
 
+  <main class="pt-20">
+   
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hi, I'm <span>Katherine </span></h1>
-                    <h2>Web Developer & UI/UX Designer</h2>
-                    <p>I create beautiful, functional websites and applications with a focus on user experience and clean code.</p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn-primary">View My Work</a>
-                        <a href="https://drive.google.com/file/d/1ZvoxO64Yy5uWr1HpNJgxr1PKoQ3RwhqI/view?usp=drive_link" class="btn-secondary">Download Resume</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="image-wrapper">
-                        <img src="/PIcture-Kath.png" alt="Profile">
-                        <div class="image-badge">
-                            <i class="fas fa-code"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About <span>Me</span></h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="/abt image.jpg" alt="Profile">
-                </div>
-                <div class="about-text">
-                    <h3>Who I Am</h3>
-                    <p> BS Information Technology graduate with a passion for both development and design, seeking opportunities to grow as a Web Developer and UI/UX Designer.</p>
-                    
-                    <h3>My Skills</h3>
-                    <div class="skills">
-                        <div class="skill-item">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span>SQL</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-wordpress"></i>
-                            <span>WordPress</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-figma"></i>
-                            <span>Figma</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-paint-brush"></i>
-                            <span>Canva</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-git"></i>
-                            <span>Git</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-adobe"></i>
-                            <span>Photoshop</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>My <span>Projects</span></h2>
-            <p class="section-description">Here are some examples of my work in both development and design.</p>
-            
-            <h3 class="project-subtitle">Web Development Projects</h3>
-            <div class="project-grid" id="web-projects">
-                <!-- Web projects will be loaded here by JavaScript -->
-            </div>
-            
-            <h3 class="project-subtitle">UI/UX Designs</h3>
-            <div class="project-grid" id="design-projects">
-                <!-- Design projects will be loaded here by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-        <section id="experience" class="experience">
-        <div class="container">
-            <h2>Work <span>Experience</span></h2>
-        
-            <div class="timeline">
-                <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>High6 <span class="timeline-date">January 2025 – June 2025</span></h3>
-                    <div class="timeline-role">
-                        <h4>Junior Web Developer (WordPress)</h4>
-                        <p class="role-date">Jan 2025 – Feb 2025</p>
-                        <p>Developed and maintained WordPress websites, implemented custom themes and plugins.</p>
-                    </div>
-                    <div class="timeline-role">
-                        <h4>Quality Assurance Analyst</h4>
-                        <p class="role-date">Feb 2025 – Apr 2025</p>
-                        <p>Conducted testing and quality assurance for web applications, documented bugs and issues.</p>
-                    </div>
-                    <div class="timeline-role">
-                        <h4>UI/UX Designer</h4>
-                        <p class="role-date">Apr 2025 – Jun 2025</p>
-                        <p>Designed user interfaces and experiences for web and mobile applications.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>FAITH Colleges <span class="timeline-date">September 2023 – December 2024</span></h3>
-                    <div class="timeline-role">
-                        <h4>Student Assistant</h4>
-                        <p class="role-date">Sep 2023 – Dec 2024</p>
-                        <p>Provided technical support and assistance to faculty and students, maintained computer labs, and assisted with IT-related tasks.</p>
-                    </div>
-                    <div class="timeline-role">
-                        <h4>IT Support Intern</h4>
-                        <p class="role-date">Jun 2024 – Aug 2024</p>
-                        <p>Assisted IT department with hardware/software troubleshooting, network maintenance, and user support.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+   <section class="relative flex flex-col-reverse md:flex-row items-center max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 min-h-[calc(100vh-5rem)]" id="home">
+    <div class="w-full md:w-1/2 text-center md:text-left mt-10 md:mt-0">
+     <h1 aria-label="Name and title" class="text-2x3 sm:text-5xl font-extrabold text-gray-900 dark:text-gray-100 leading-tight">
+      Hi, I'm
+      <span class="text-indigo-600 dark:text-indigo-400">
+       Katherine O.
+      </span>
+      <br/>
+      <span class="text-xl sm:text-2xl font-semibold text-gray-700 dark:text-gray-300">
+       Web Developer &amp; UI/UX Designer
+      </span>
+     </h1>
+     <p class="mt-6 text-gray-600 dark:text-gray-300 max-w-md mx-auto md:mx-0 text-base sm:text-lg leading-relaxed">
+      Motivated web developer with a strong background in graphic design and
+          a keen interest in UI/UX principles. Passionate about building
+          responsive, visually engaging, and user-centric websites.
+     </p>
+     <a class="inline-block mt-8 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition" download="" href="Your_CV.pdf">
+      Download CV
+     </a>
     </div>
-</section>
-
-        <!-- Education Section -->
-        <section id="education" class="education">
-        <div class="container">
-        <h2>My <span>Education</span></h2>
-        
-        <div class="education-box">
-            <div class="education-content">
-                <h3>Bachelor of Science in</h3>
-                <h2>Information Technology</h2>
-                <div class="institution">
-                    <p>FAITH Colleges</p>
-                </div>
-            </div>
-        </div>
+    <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+     <img alt="Profile photo of a young professional web developer with a friendly smile wearing smart casual clothes" class="rounded-full w-64 h-64 sm:w-72 sm:h-72 object-cover shadow-lg" height="400" loading="lazy" src="/Pictures/PIcture-Kath.png" width="400"/>
     </div>
-    </section>
-    </section>
+    <!-- Subtle background animation: floating circles -->
+    <div aria-hidden="true" class="absolute inset-0 -z-10 overflow-hidden" style="pointer-events:none">
+     <img alt="Subtle light purple background circle" class="absolute top-10 left-10 w-40 h-40 rounded-full opacity-30 animate-float" height="600" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ac7b5729-e664-436a-2ca5-002c7fbd696d.jpg" width="600"/>
+     <img alt="Subtle light blue background circle" class="absolute bottom-20 right-20 w-56 h-56 rounded-full opacity-20 animate-float animation-delay-2000" height="500" loading="lazy" src="https://storage.googleapis.com/a1aa/image/6e7c25e8-802f-487c-cdad-6681bb963c72.jpg" width="500"/>
+    </div>
+   </section>
+   
+   
+   <!-- About Me Section -->
+   <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20" id="about" tabindex="-1">
+    <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
+     About Me
+    </h2>
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+     <div>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+       I am a passionate web developer and UI/UX designer with expertise in
+            creating clean, modern, and user-friendly websites and applications.
+            I specialize in front-end development and design, always aiming to
+            deliver the best user experience.
+      </p>
+     </div>
+     <div>
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
+       Key Skills
+      </h3>
+      <ul class="flex flex-wrap gap-4 justify-center md:justify-start">
+       <li class="flex items-center space-x-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 px-4 py-2 rounded-full font-medium shadow-sm">
+        <i class="fab fa-html5 text-xl">
+        </i>
+        <span>
+         HTML
+        </span>
+       </li>
+       <li class="flex items-center space-x-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 px-4 py-2 rounded-full font-medium shadow-sm">
+        <i class="fab fa-css3-alt text-xl">
+        </i>
+        <span>
+         CSS
+        </span>
+       </li>
+       <li class="flex items-center space-x-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 px-4 py-2 rounded-full font-medium shadow-sm">
+        <i class="fab fa-js-square text-xl">
+        </i>
+        <span>
+         JavaScript
+        </span>
+       </li>
+       <li class="flex items-center space-x-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 px-4 py-2 rounded-full font-medium shadow-sm">
+        <i class="fas fa-pencil-ruler text-xl">
+        </i>
+        <span>
+         Figma
+        </span>
+       </li>
+       <li class="flex items-center space-x-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 px-4 py-2 rounded-full font-medium shadow-sm">
+        <i class="fab fa-wordpress-simple text-xl">
+        </i>
+        <span>
+         WordPress
+        </span>
+       </li>
+       <li class="flex items-center space-x-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 px-4 py-2 rounded-full font-medium shadow-sm">
+        <i class="fab fa-git-alt text-xl">
+        </i>
+        <span>
+         Git
+        </span>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </section>
+   
+   <!-- Projects Section -->
+   <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20" id="projects" tabindex="-1">
+    <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
+     Projects
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto" id="projects-grid">
+    </div>
+   </section>
+   
+   
+   <!-- Experience Section -->
+   <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20" id="experience" tabindex="-1">
+    <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
+     Experience
+    </h2>
+    <ol class="relative border-l border-gray-300 dark:border-gray-700 max-w-4xl mx-auto space-y-10">
+     <li class="mb-10 ml-6">
+      <span aria-hidden="true" class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-indigo-600 rounded-full ring-8 ring-white dark:ring-gray-900">
+       <i class="fas fa-briefcase text-white text-sm">
+       </i>
+      </span>
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+       Junior Web Developer Intern
+      </h3>
+      <span class="text-sm text-indigo-600 dark:text-indigo-400 font-medium">
+       High6
+      </span>
+      <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+       Jan 2025 - June 2025
+      </time>
+      <p class="text-gray-700 dark:text-gray-300">
+       Develop and maintain website subpages using WordPress and Divi Builder. Conduct quality assurance to ensure website layouts match Figma mockups accurately. Design UI/UX mockups in Figma based on client needs and preferences.
+      </p>
+     </li>
+     <li class="mb-10 ml-6">
+      <span aria-hidden="true" class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-indigo-600 rounded-full ring-8 ring-white dark:ring-gray-900">
+       <i class="fas fa-briefcase text-white text-sm">
+       </i>
+      </span>
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+       Student Assistant
+      </h3>
+      <span class="text-sm text-indigo-600 dark:text-indigo-400 font-medium">
+       FAITH Colleges
+      </span>
+      <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+       October 2023 - Dec 2024
+      </time>
+      <p class="text-gray-700 dark:text-gray-300">
+       Assist with administrative tasks, including data entry, document preparation, and digital file management using Google Workspace, while coordinating with faculty and staff to streamline office operations.
+      </p>
+     </li>
+     <li class="mb-10 ml-6">
+      <span aria-hidden="true" class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-indigo-600 rounded-full ring-8 ring-white dark:ring-gray-900">
+       <i class="fas fa-briefcase text-white text-sm">
+       </i>
+      </span>
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+       IT Support Intern
+      </h3>
+      <span class="text-sm text-indigo-600 dark:text-indigo-400 font-medium">
+       FAITH Colleges
+      </span>
+      <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+       June 2024 - August 2024
+      </time>
+      <p class="text-gray-700 dark:text-gray-300">
+       Supported lab maintenance by resetting systems, installing software, assisting with LAN rewiring, and organizing data, gaining hands-on IT support experience.
+      </p>
+     </li>
+    </ol>
+   </section>
+   
+   <!-- Education Section -->
+   <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20" id="education" tabindex="-1">
+    <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
+     Education
+    </h2>
+    <ul class="max-w-4xl mx-auto space-y-8 text-gray-700 dark:text-gray-300 text-lg font-medium" role="list">
+     <li class="border-l-4 border-indigo-600 dark:border-indigo-400 pl-6">
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
+       First Asia Institute of Technology and Humanities
+      </h3>
+      <p>
+       Bachelor of Science in Information Technology
+      </p>
+      <time class="text-gray-500 dark:text-gray-400">
+       Graduated 2025
+      </time>
+     </li>
+     <li class="border-l-4 border-indigo-600 dark:border-indigo-400 pl-6">
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
+       La Consolacion College Tanauan
+      </h3>
+      <p>
+       Humanities and Social Sciences
+      </p>
+      <time class="text-gray-500 dark:text-gray-400">
+       Graduated 2021
+      </time>
+     </li>
+    </ul>
+   </section>
+   
+   <!-- CV Download / Contact Section -->
+   <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20" id="contact" tabindex="-1">
+    <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
+     CV / Contact
+    </h2>
+    <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-8">
+     <a aria-label="Download CV as PDF" class="inline-flex items-center justify-center px-8 py-4 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition w-full sm:w-auto" download="" href="Your_CV.pdf">
+      <i class="fas fa-download mr-3">
+      </i>
+      Download CV
+     </a>
+     <a aria-label="Send email to your.email@example.com" class="inline-flex items-center justify-center px-8 py-4 border border-indigo-600 text-indigo-600 dark:text-indigo-400 font-semibold rounded-md shadow-md hover:bg-indigo-50 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition w-full sm:w-auto" href="mailto:your.email@example.com">
+      <i class="fas fa-envelope mr-3">
+      </i>
+      opulenciakatherine.t@gmail.com
+     </a>
+    </div>
+   </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8">
+   <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+    <div class="flex space-x-6 text-gray-600 dark:text-gray-400 text-xl">
+     <a aria-label="LinkedIn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="https://linkedin.com/in/yourprofile" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-linkedin">
+      </i>
+     </a>
+     <a aria-label="GitHub" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="https://github.com/yourprofile" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-github">
+      </i>
+     </a>
+    </div>
+    <p class="text-gray-500 dark:text-gray-400 text-sm select-none">
+     © 2025 Katherine Opulencia All rights reserved.
+    </p>
+   </div>
+  </footer>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In <span>Touch</span></h2>
-            <p class="section-description">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>opulenciakatherine.t@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Calamba City, Laguna, Philippines</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Resume</h4>
-                            <a href="https://drive.google.com/file/d/1ZvoxO64Yy5uWr1HpNJgxr1PKoQ3RwhqI/view?usp=drive_link" class="resume-link">Download PDF</a>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <h3>Follow Me</h3>
-                        <div class="social-icons">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="4"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+  <script src="script.js"></script>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="logo"> Katherine Opulencia </a>
-                </div>
-                <div class="footer-links">
-                    <a href="#">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; 2025 Katherine Opulencia. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+ </body>
 </html>
